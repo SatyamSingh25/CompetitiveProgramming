@@ -7,6 +7,8 @@ public class SeiveOfEratosthenesPrimeNumber {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the range of prime Numbers: ");
 		int n =  sc.nextInt();
+
+		//Seive of Eratosthenes
 		boolean[] prime = new boolean[n+1];
 		Arrays.fill(prime, true);
 		
