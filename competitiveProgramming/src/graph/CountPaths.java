@@ -5,7 +5,6 @@ import java.util.*;
 public class CountPaths {
 	public static void addEdge(ArrayList<ArrayList<Integer>> arr, int source, int destination) {
 		arr.get(source).add(destination);
-		arr.get(destination).add(source);
 	}
 	//logic method
 	public static int findAllPathsCount(ArrayList<ArrayList<Integer>> arr, int source, int destination) {
@@ -19,7 +18,7 @@ public class CountPaths {
 		if(source == destination)
 			count++;
 		else {
-			Iterator<Integer> itr = arr.get(source).iterator();
+			Iterator<Integer> itr = arr.get(source).listIterator();
 			while(itr.hasNext()) {
 				int curr = itr.next();
 				count = findPathCoutFromSource(arr, curr, destination, count);
@@ -40,5 +39,6 @@ public class CountPaths {
 		}
 		System.out.println("Enter Source & Destination from where you want to find all paths to itself: ");
 		int noOfPaths = findAllPathsCount(arr, sc.nextInt(), sc.nextInt());
+		System.out.println(noOfPaths);
 	}
 }
