@@ -8,14 +8,14 @@ public class DijestraAlgo {
 	//BFS using in Dijkstra's algorithm
 	public static void DijkstraAlgo(int source,int vertices, ArrayList<ArrayList<Pair>> graph) {
 		int dist[] = new int[vertices];
-		PriorityQueue<Pair> queue = new PriorityQueue<Pair>(new Pair());
+		PriorityQueue<Pair> queue = new PriorityQueue<Pair>(vertices, new Pair());
 		
 		Arrays.fill(dist, Integer.MAX_VALUE);
 		
 		dist[source] = 0;
 		queue.add(new Pair(source, 0));
 		
-		while(queue.isEmpty() == false) {
+		while(queue.size() > 0) {
 			
 			Pair curr = queue.poll();
 			
@@ -47,30 +47,34 @@ public class DijestraAlgo {
 		
 		System.out.println("Enter edges: ");
 		for(int i=0; i<edges; i++) {
-			graph.get(sc.nextInt()).add(new Pair(sc.nextInt(), sc.nextInt()));
+			int ss = sc.nextInt();
+			int node = sc.nextInt();
+			int we = sc.nextInt();
+			graph.get(ss).add(new Pair(node, we));
 		}
 		//calling Dijkstra 
+		System.out.println("Enter the Source: ");
 		DijkstraAlgo(sc.nextInt(), vertices, graph);
 		sc.close();
 	}
-	
-	//pair class and sort the elements according to weights
-	static class Pair implements Comparator<Pair>{
-		Pair(){};
-		int node, weight;
-		Pair(int n, int w){
-			this.node = n;
-			this.weight = w;
-		}
-		@Override
-		public int compare(Pair node1, Pair node2) {
-			if(node1.weight < node2.weight) {
-				return -1;
-			}
-			else if(node1.weight > node2.weight){
-				return 1;
-			}
-			return 0;
-		}
+	static class Pair implements Comparator<Pair>
+	{
+	    int node;
+	    int weight;
+	    
+	    Pair(int v, int w) { 
+	    	node = v; 
+	    	weight = w;
+	    }	    
+	    Pair(){}	    
+	    @Override
+	    public int compare(Pair node1, Pair node2) 
+	    { 
+	        if (node1.weight < node2.weight) 
+	            return -1; 
+	        if (node1.weight > node2.weight) 
+	            return 1; 
+	        return 0; 
+	    } 
 	}
 }
