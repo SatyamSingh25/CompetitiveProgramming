@@ -59,7 +59,7 @@ public class ShortestPathIn_DAG {
 			int node = sc.nextInt();
 			int w = sc.nextInt();
 			graph.get(source).add(new WeightedEdge(node, w));
-		}
+		}	
 		System.out.println("Enter the source: ");
 		topologicalSort(graph, vertices, sc.nextInt());
 		
