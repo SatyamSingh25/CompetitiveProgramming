@@ -30,19 +30,26 @@ public class BFSinMat {
 	public static void bfs(int i, int j, int[][] mat, boolean[][] visited) {
 		Queue<Pair> queue = new LinkedList<Pair>();
 		queue.add(new Pair(i, j));
+		
 		visited[i][j] = true;
+		
 		while(queue.isEmpty() == false) {
+			
 			Pair curr = queue.poll();
 			int x = curr.i;
 			int y = curr.j;
+			
 			System.out.print(mat[x][y] + " ");
+			
 			for(int t=0; t<4; t++) {
 				int adj_x = x + dRow[t];
 				int adj_y = y + dCol[t];
+				
 				if(isValid(visited, adj_x, adj_y)){
 					queue.add(new Pair(adj_x, adj_y));
 					visited[adj_x][adj_y] = true;
 				}
+				
 			}
 		}
 	}
@@ -60,6 +67,5 @@ public class BFSinMat {
 		}
 		bfs(0, 0, mat, visited);
 		sc.close();
-	}
-	
+	}	
 }
