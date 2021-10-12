@@ -9,7 +9,7 @@ public class CycleDetectionUsingDFS {
 					return true;
 				}
 			}
-			else if(visited[i] == true) {
+			else if(parent != i) {
 				return true;
 			}
 		}
