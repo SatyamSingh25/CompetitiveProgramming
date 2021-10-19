@@ -1,6 +1,6 @@
 package graph;
 import java.util.*;
-public class WeightedGraphCreation {,kjk
+public class WeightedGraphCreation {
 	public static class Edge{
 		int source, destination, weight;
 		public Edge(int s, int d, int w) {
