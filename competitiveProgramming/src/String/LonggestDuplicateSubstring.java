@@ -90,6 +90,7 @@ public class LonggestDuplicateSubstring {
                 for (int start : map.get(winHash))
                     if (isEqual(s, start, i, windowSize))
                         return s.substring(i, i + windowSize);
+            
             map.computeIfAbsent(winHash, k -> new ArrayList<>()).add(i);
         }
         return null;
