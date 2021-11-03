@@ -2,7 +2,7 @@ package matrix;
 /**
  * @DFS_in_Matrix
  * @Count_zeros
- * @Total_valid_using_DFS
+ * @Total_valid_Paths_using_DFS
  * @Start_and_End_coordinates_given
  * @Obstacle_While_traversing
  * 
